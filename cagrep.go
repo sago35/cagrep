@@ -9,6 +9,9 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "cagrep"
 	app.Usage = "grep with cashed server"
+	app.Version = "0.0.1"
+	app.Author = "sago35"
+	app.Email = "sago35@gmail.com"
 	app.Flags = []cli.Flag{
 		cli.BoolFlag{
 			Name:  "server, s",
