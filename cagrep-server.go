@@ -2,10 +2,11 @@ package main
 
 import (
 	"bufio"
-	"code.google.com/p/mahonia"
 	"fmt"
 	"github.com/codegangsta/cli"
 	"github.com/hoisie/web"
+	"golang.org/x/text/encoding/japanese"
+	"golang.org/x/text/transform"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -81,10 +82,10 @@ func cagrepServer(c *cli.Context) {
 					os.Exit(1)
 				}
 
-				scanner := bufio.NewScanner(f)
+				scanner := bufio.NewScanner(transform.NewReader(f, japanese.ShiftJIS.NewDecoder()))
 				lines := []string{}
 				for scanner.Scan() {
-					lines = append(lines, mahonia.NewDecoder("cp932").ConvertString(scanner.Text()))
+					lines = append(lines, scanner.Text())
 				}
 
 				ch <- File{
