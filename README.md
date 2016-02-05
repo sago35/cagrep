@@ -64,7 +64,7 @@ TBD.
 本ツールは、golangで作成されています。
 
     $ go version
-    go version go1.4.1 windows/amd64
+    go version go1.5.3 windows/amd64
 
 以下のコマンドで実行体を作成することができます。
 
@@ -73,8 +73,9 @@ TBD.
 なお、以下のライブラリをインストールする必要があります。
 
     $ go get github.com/codegangsta/cli
-    $ go get code.google.com/p/mahonia
     $ go get github.com/hoisie/web
+    $ go get golang.org/x/text/transform
+    $ go get golang.org/x/text/encoding/japanese
 
 
 ## Contribution
